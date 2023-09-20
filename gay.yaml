@@ -1,0 +1,127 @@
+#the first data document
+#key or dictonery type of data
+
+"cpu" : "main memory of the system"
+"monitor" : "output display of the system"
+"name" : "varun"
+19 : "that is my age"
+---
+#we use --- to end the document
+
+#list type of document
+
+ - car
+ - bike
+ - areoplane
+ - rocket
+---
+
+#Blockstyle type of document
+cities:
+ - new delhi
+ - hyderabad
+ - dehradun
+ - goa
+ - humpi
+---
+#we use ... to end the file
+
+# automaticaaly detects the data type lets see below
+number : 54247
+marks : 556.56
+booleanvalues : no
+
+---
+
+#if u want to write multiple line message use > lets see
+message : >
+hi gay this aint lgbt
+country so better 
+dont spread it here
+
+---
+
+#you can also mention the type of dattype by using the symbol !! lets see
+numbering : !!int 123
+age : !!int 19
+class : !!string "cse"
+marksgot : !!float 5896.35
+#infinte
+infinitynum : !!float .inf
+#not a number
+notdanum : .nan 
+sms : !!str gaygay
+#null
+gender : !!null null
+#time
+date : !!timestamp 2023-09-09
+---
+Nested Mapping and Sequence:
+
+
+users:
+  - name: John
+    age: 30
+  - name: Alice
+    age: 25
+In this example, there is a list of users, and each user has a name and an age.
+
+Aliases (Anchors) and References:
+
+
+
+people:
+  - &person
+    name: John
+    age: 30
+  - <<: *person
+    name: Alice
+Here, an anchor (&person) is used to define a template for a person. The << notation is used to reference and reuse the template for Alice.
+
+Multi-Line Strings (Literal Block):
+
+
+description: |
+  This is a multi-line
+  string in .
+  It preserves newlines and formatting.
+#The | symbol indicates a literal block style, which preserves newlines and indentation.
+
+Custom Tags:
+
+
+
+date: !!timestamp '2023-09-20T15:30:00Z'
+ #allows you to use custom tags to define data types. Here, !!timestamp is used to specify a timestamp.
+
+Map Merging:
+
+
+
+default_settings:
+  host: localhost
+  port: 8080
+
+user_settings:
+  <<: *default_settings
+  port: 9090
+#The << notation is used to merge the user_settings map with the default_settings, and then it overrides the port value.
+
+Flow Style (Compact):
+
+
+
+colors: { primary: 'red', secondary: 'blue' }
+# supports a compact "flow" style for dictionaries (maps) and lists (sequences) where items are enclosed in curly braces {} and square brackets [], respectively.
+
+#Document Separation (Multiple Documents in One File):
+
+
+
+---
+name: Alice
+age: 25
+---
+name: Bob
+age: 32 
+...

@@ -1,0 +1,100 @@
+#sequence type data 
+#Order: Sequences maintain the order of elements. The order in which items are defined is preserved when parsed.
+
+
+student : !!seq
+ - marks
+ - name
+ - roll_no
+
+---
+#we can also write it as
+cities : [hyderabad, humpi]
+
+#YAML sequences are commonly used to represent lists, arrays,
+# and ordered collections of data in configuration files, data serialization, 
+#and other contexts where structured data needs to be represented in a human-readable format
+---
+#sparse seq
+sparse seq:
+ - hey
+ - gay
+ -
+ - what
+ - you doin
+---
+#nested sequence
+ -
+  - mango
+  - apple
+  - guava
+ -
+  - marks
+  - age
+  - gender
+---
+#key : values pair are called maps denoted by !!map
+hi : !!map "ssup"
+
+----
+#nested mapping : map within the map
+name : varun
+role :
+  age: 78
+  job: student
+  clg: iare
+---
+
+parent_key:
+  child_key1: value1
+  child_key2: value2
+  child_key3:
+    nested_key1: nested_value1
+    nested_key2: nested_value2
+Here's a breakdown of the structure:
+
+Here's a breakdown of the structure:
+
+# parent_key is a key that contains values.
+# child_key1 and child_key2 are scalar values.
+# child_key3 is a key that contains a nested mapping with its own key-value pairs (nested_key1 and nested_key2).
+# You can nest mappings to create complex data structures that represent relationships between different pieces of data. 
+#This is particularly useful when working with configuration files, data serialization, or any situation 
+#where you need to represent structured information.
+
+
+
+#we can also write it as this
+name : varun
+role : {age: 78, job: student, clg: iare}
+
+#!!set will allow
+names : !!set
+
+---
+#dictionery !!omap
+people : !!omap
+ - varun:
+  name: varun
+  age : 78
+  height: 678
+ - rahul:
+  name : rahul
+  age: 89
+  height: 782
+---
+#reusing the same properties using anchor
+likings : &liks 
+  fav fruit: mango
+  dislikes: grape
+person1: 
+  name: varun
+  <<: *liks
+person2:
+  name: rahul
+  <<: *liks
+person3:
+  name: apporv
+  <<: *liks
+  dislikes: beeries
+...
